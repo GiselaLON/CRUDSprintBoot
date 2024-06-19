@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+
+       <section th:fragment="register" class="flex-1 flex justify-center items-center">
+              <form th:action="@{/registro}" th:object="${registro}" method="post"
+                     class="w-[30%] h-[90%] flex flex-col justify-evenly formulario-con-borde border-2 border-solid p-10
+                     rounded-2xl bg-white">
+                     
+                     <article class="w-[20vh] h-[30%] flex justify-center items-center">
+                            <img src="https://res.cloudinary.com/ddkanhn4g/image/upload/v1718117548/Proyecto/Icon/cfu9zb7qqlmox0e5tuhh.png" alt="" class="mx-auto">
+                     </article>
+
+                     <input type="text" placeholder="Nombre" th:field="*{nombre}"
+                            class="rounded-md border-solid border-b-2 border-blue-900 p-2 focus:outline-none focus:border-yellow-500 ease-in-duration-300">
+                     <input type="text" placeholder="Apellido" th:field="*{apellido}"
+                            class="rounded-md border-solid border-b-2 border-blue-900 p-2 focus:outline-none focus:border-pink-500 ease-in-duration-300">
+                     <input type="email" placeholder="Correo" th:field="*{correo}"
+                            class="rounded-md border-solid border-b-2 border-blue-900 p-2 focus:outline-none focus:border-yellow-500 ease-in-duration-300">
+                     <input type="password" placeholder="Contrasena" th:field="*{contrasena}"
+                            class="rounded-md border-solid border-b-2 border-blue-900 p-2 focus:outline-none focus:border-pink-500 ease-in-duration-300">
+                     <br>
+                     <label for="descripcion"></label>
+                     <textarea th:field="*{descripcion}" placeholder="Descripcion" id="descripcion" cols="30" rows="5"
+                            class="rounded-md border-solid border-2 border-blue-900"></textarea>
+                     <label class="color-black-900 text-ms"></label>
+                     <br>
+                     <input type="submit" value="Enviar"
+                            class="bg-violet-400 rounded-full rounded-md border-solid border-2 border-violet-800 focus:outline-none focus:ring focus:ring-violet-300">
+              </form>
+       </section>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script th:src="@{/js/tailwind.config.js}"></script>
+</head>
+
+
+
+<body class="w-full h-[100vh] flex justify-center items-center bg-purple-200">
+    <section th:fragment="login" class="flex-1 flex justify-center items-center">
+        <form action="" method="post" class="w-[30%] h-[50%] flex flex-col justify-evenly border-2 border-solid p-10
+        rounded-2xl bg-white">
+            <img src="https://res.cloudinary.com/ddkanhn4g/image/upload/v1717677606/Proyecto/Icon/r5ivnpqysrvz9h5n2yzh.png" alt="">
+
+            <input type="text" placeholder="User" class="rounded-md border-solid border-b-2 border-blue-900 p-2 focus:outline-none focus:border-yellow-500 ease-in-duration-300 mt-4">
+
+            <input type="password" placeholder="Contraseña" class="rounded-md border-solid border-b-2 border-blue-900 p-3 focus:outline-none focus:border-pink-500 ease-in-duration-300 mt-4">
+
+            <div class="flex items-center mt-4">
+                <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline"></a>Terminos y Condiciones</label>
+            </div>
+
+            <input type="submit" value="Login" class=" bg-violet-400 rounded-full rounded-md border-solid border-2 border-violet-800 focus:outline-none focus:ring focus:ring-violet-300 mt-6">
+        </form>
+    </section>
+</body>
+</html>

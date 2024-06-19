@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Registro</title>
+    <!-- Incluye el CSS de Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+<h1 class="text-2xl font-bold mb-4">Editar Registro</h1>
+<!-- Formulario para editar el registro -->
+<form th:action="@{/registros/update/{id}(id=${registro.id})}" th:object="${registro}" method="post" class="bg-white shadow-md rounded-lg p-8">
+    <div class="mb-4">
+        <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+    </div>
+    <div class="mb-4">
+        <label for="apellido" class="block text-gray-700 text-sm font-bold mb-2">Apellido:</label>
+        <input type="text" id="apellido" th:field="*{apellido}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+    </div>
+    <div class="mb-4">
+        <label for="correo" class="block text-gray-700 text-sm font-bold mb-2">Correo:</label>
+        <input type="email" id="correo" th:field="*{correo}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+    </div>
+    <div class="mb-4">
+        <label for="contrasena" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
+        <input type="password" id="contrasena" th:field="*{contrasena}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+    </div>
+    <div class="mb-4">
+        <label for="descripcion" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
+        <input type="text" id="descripcion" th:field="*{descripcion}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+    </div>
+    <div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar</button>
+    </div>
+</form>
+</body>
+</html>

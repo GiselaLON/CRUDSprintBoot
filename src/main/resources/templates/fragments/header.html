@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+    <nav th:fragment="header" class="w-full h-full p-2 bg-zinc-600">
+        <ul class="w-full h-full flex items-center justify-around ">
+            <a th:href="@{/index}">Inicio</a>
+            <a th:href="@{/registros}">Usuarios</a>
+            <a th:href="@{/register/new}">Registro</a>
+            <a >Contactos</a>
+
+        </ul>
+    </nav>
+
+</body>
+</html>

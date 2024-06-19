@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrar Tabla</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asumiendo que tienes un archivo CSS para los estilos -->
+</head>
+<body>
+<section th:fragment="table" class="flex-1 flex justify-center items-center">
+    <div class="container mx-auto px-6 py-3">
+        <form th:action="@{/search}" method="get" >
+            <div class="container mx-auto py-4">
+                <input type="text" name="id" class="py-2 px-6 border-b border-gray-300 text-center " id="id" placeholder="Ingrese el ID">
+                <input type="submit" class="bg-info py-2 px-4  border-b border-gray-300 text-center" value="Buscar">
+            </div>
+            <label th:text="${Mensaje}"></label>
+        </form>
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">ID</th>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">Nombre</th>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">Apellido</th>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">Correo</th>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">Contraseña</th>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">Descripción</th>
+                <th scope="col" class="px-6 py-3 border-gray-300 text-center">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dato : ${Datos}" class="py-2 px-4 border-b border-gray-300 text-center">
+                <td th:text="${dato.id}" class="py-2 px-4 border-b border-gray-300 text-center"></td>
+                <td th:text="${dato.nombre}" class="py-2 px-4 border-b border-gray-300 text-center"></td>
+                <td th:text="${dato.apellido}" class="py-2 px-4 border-b border-gray-300 text-center"></td>
+                <td th:text="${dato.correo}" class="py-2 px-4 border-b border-gray-300 text-center"></td>
+                <td th:text="${dato.contrasena != null ? '*'.repeat(dato.contrasena.length()) : ''}" class="py-2 px-4 border-b border-gray-300 text-center"></td>
+                <td th:text="${dato.descripcion}" class="py-2 px-4 border-b border-gray-300 text-center"></td>
+                <td>
+                    <a th:href="@{/registros/edit/{id}(id=${dato.id})}" class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-700">Actualizar</a>
+                    <a th:href="@{/registros/delete/{id}(id=${dato.id})}" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?');">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>
